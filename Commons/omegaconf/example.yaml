@@ -1,0 +1,9 @@
+__object__:
+    path: ExampleObject
+    args: as_config
+
+property1: true
+property2:
+    subproperty1: 1
+    subproperty2: 2
+property3: "asdf"

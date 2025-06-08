@@ -1,0 +1,7 @@
+__object__:
+  path: Models.IdentModelHandler
+  args: as_config
+
+model:
+  name: identwv
+  path: Models.identwv

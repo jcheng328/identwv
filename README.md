@@ -13,9 +13,24 @@ WeakIdent with Voting
 ---
 ## About
 
-
+Ident-WV (WeakIdent with Voting) is a powerful framework for identifying differential equations. It leverages a novel dynamics-guided weighted weak form combined with a robust voting mechanism to enhance accuracy and stability in system identification. This approach significantly improves the ability to uncover underlying differential equations from observed data.
 
 ## Getting Started
+To get started with Ident-WV, follow these simple steps:
+
+Clone the repository:
+
+Bash
+
+```bash
+git clone https://github.com/jcheng328/identwv.git
+cd identwv
+```
+
+Configure your settings: Our configurations are thoughtfully organized into three distinct parts, allowing for precise control over your experiments:
+1. [Model Configurations](): Define parameters for the core identification model.
+2. [Metric Configurations](): Set up the metrics used for evaluation.
+3. [Data Configurations](): Specify how your input data is handled.
 
 
 ## Contributing
@@ -25,7 +40,7 @@ Please reach out to us to get involved.
 
 ## Citation
 
-If you use Ident-WV for your research, please cite our [paper]():
+If Ident-WV proves valuable in your research, please consider citing our [paper]():
 
 ```bibtex
 @inproceedings{jcheng2025voting,

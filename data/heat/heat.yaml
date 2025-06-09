@@ -1,0 +1,12 @@
+
+name: heat_pdepe_ver2_7
+path: Data/heat/heat_pdepe_ver2_7.mat
+
+pde_lib:
+    max_dt: 1
+    max_dx: 6
+    use_cross_derivative: false
+    polys: [0, 1, 2, 3, 4, 5, 6]
+nsrs:
+  start_step_stop: [0, 0.2, 1.5]
+repeat: 5

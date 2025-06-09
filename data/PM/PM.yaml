@@ -1,0 +1,12 @@
+name: PM
+path: Data/PM/PM.mat
+
+pde_lib:
+    max_dt: 1
+    max_dx: 4
+    use_cross_derivative: true
+    polys: [0, 1, 2, 3, 4]
+Tau: 0.2
+nsrs:
+  start_step_stop: [0, 0.01, 0.]
+repeat: 20

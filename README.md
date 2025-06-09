@@ -7,7 +7,7 @@ WeakIdent with Voting
 </h3>
 
 <p align="center">
-| <a href=""><b>Documentation</b></a> | <a href=""><b>Paper</b></a> | <a href=""><b>Developer Group</b></a> |
+| <a href="https://github.com/jcheng328/identwv/tree/main?tab=readme-ov-file"><b>Documentation</b></a> | <a href=""><b>Paper</b></a> | <a href=""><b>Developer Group</b></a> |
 </p>
 
 ---
@@ -18,20 +18,30 @@ Ident-WV (WeakIdent with Voting) is a powerful framework for identifying differe
 ## Getting Started
 To get started with Ident-WV, follow these simple steps:
 
-Clone the repository:
-
-Bash
+**Clone the repository:**
 
 ```bash
 git clone https://github.com/jcheng328/identwv.git
 cd identwv
 ```
 
-Configure your settings: Our configurations are thoughtfully organized into three distinct parts, allowing for precise control over your experiments:
-1. [Model Configurations](): Define parameters for the core identification model.
-2. [Metric Configurations](): Set up the metrics used for evaluation.
-3. [Data Configurations](): Specify how your input data is handled.
+**Configure your settings:**
 
+Our configurations are thoughtfully organized into three distinct parts, allowing for precise control over your experiments:
+1. Data Configurations: Specify how your input data is handled. It includes the specification of the library of candidates (maximum derivatives, whether to use cross derivatives) and etc.. E.g., [KdV]().
+2. Plot Configurations: Set up preferences for how your figures are plotted. It includes the statistics name, the figure size, labels, legend location, and etc.. E.g., [TPR Figure Configuration](https://github.com/jcheng328/identwv/blob/main/Service/Compare_Service_TPR.yaml).
+
+**Execute the code:**
+
+Once configured, you can run `main.m` to automatically execute the algorithm. This script will persist the results, including common metrics, into a table and log the output to a standard output file located at 
+```
+\Results\ModelHandler\identwv\{your_dataset_name}\Output_identwv_{your_dataset_name}.txt
+```
+To visualize your results, run `data_visual.m`. This script retrieves the metrics and generates plots based on your figure preference configuration. The output log can be found at 
+```
+\Results\ModelComparer\{your_dataset_name}\Output_ModelComparer.txt
+```
+, and the generated plots will be saved in the same directory.
 
 ## Contributing
 

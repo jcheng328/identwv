@@ -1,0 +1,16 @@
+__object__:
+  path: Models.IdentModelComparer
+  args: as_config
+
+comparer:
+  statsName: ppv
+  path: Service.retrieveResults
+figure:
+  xlabel: \sigma_{NSR}
+  ylabel: PPV
+  title: ''
+  xlim: 'tight'
+  ylim: [0, 1]
+  YScale: linear
+  LineWidth: 1
+  legendLoc: 'southwest'

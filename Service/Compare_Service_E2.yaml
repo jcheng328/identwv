@@ -1,0 +1,17 @@
+__object__:
+  path: Models.IdentModelComparer
+  args: as_config
+
+comparer:
+  statsName: e2
+  path: Service.retrieveResults
+figure:
+  xlabel: \sigma_{NSR}
+  ylabel: E_2
+  title: ''
+  xlim: 'tight'
+  ylim: [1e-4,1]
+  YScale: log
+  LineWidth: 1
+  legendLoc: 'southwest'
+

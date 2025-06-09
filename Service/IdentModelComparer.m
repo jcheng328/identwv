@@ -33,9 +33,6 @@ classdef IdentModelComparer < ModelComparer
             obj@ModelComparer(config);
             obj.setComparerModulePath(obj.config.comparer.path);
             obj.setStatsName(obj.config.comparer.statsName);
-            obj.setModelNames(obj.config.models)
-            obj.setDisplayNames(obj.config.displayNames)
-            obj.setDatasetNames(obj.config.datasets)
         end
         function setComparerModulePath(self, comparerModulePath)
             % Set path to Comparer Moduler
@@ -48,17 +45,6 @@ classdef IdentModelComparer < ModelComparer
             %
             self.comparerModulePath = comparerModulePath;
         end
-        function setModelNames(self, modelNames)
-            % Set model names
-            %
-            % Syntax:
-            %   hanlder.setModelNames({'model1', 'model2'})
-            %
-            % Inputs:
-            %   modelNames - Model names
-            %
-            self.modelNames = modelNames;
-        end
         function setStatsName(self, statsName)
             % Set stats names
             %
@@ -70,28 +56,6 @@ classdef IdentModelComparer < ModelComparer
             %
             self.statsName = statsName;
         end
-        function setDisplayNames(self, displayNames)
-            % Set model names
-            %
-            % Syntax:
-            %   hanlder.setDisplayNames({'model1', 'model2'})
-            %
-            % Inputs:
-            %   displayNames - Display names
-            %
-            self.displayNames = displayNames;
-        end
-        function setDatasetNames(self, datasetNames)
-            % Set dataset names
-            %
-            % Syntax:
-            %   hanlder.setDatasetNames({'data1', 'data2'})
-            %
-            % Inputs:
-            %   datasetNames - Dataset names
-            %
-            self.datasetNames = datasetNames;
-        end
         function loopCompare(self, comparerModulePath, modelNames, displayNames, datasetNames)
             arguments
                 self
@@ -101,13 +65,12 @@ classdef IdentModelComparer < ModelComparer
                 datasetNames = self.datasetNames
             end
             for i = 1:numel(self.datasetNames)
-                self.compare(self.statsName, datasetNames{i}, modelNames, displayNames, comparerModulePath, self.config.xlim{i}, self.config.legendLoc{i})
+                self.compare(datasetNames{i}, modelNames, displayNames, comparerModulePath, self.config.xlim{i}, self.config.legendLoc{i})
             end
         end
-        function compare(self, statsName, datasetName, modelNames, displayNames, comparerModulePath, xlimits, legendLoc, verbose)
+        function compare(self, datasetName, modelNames, displayNames, comparerModulePath, xlimits, legendLoc, verbose)
             arguments
                 self
-                statsName
                 datasetName
                 modelNames
                 displayNames
@@ -116,7 +79,7 @@ classdef IdentModelComparer < ModelComparer
                 legendLoc=self.config.figure.get('legendLoc','best')
                 verbose=false
             end
-            % legendLoc = 'bestoutside'
+            statsName = self.statsName;
             algo = importModule(comparerModulePath);
             % Initial figures
             fig = figure("Visible", "off");
@@ -124,7 +87,6 @@ classdef IdentModelComparer < ModelComparer
             if isempty(ax); ax = axes(); end
             fig.Units = 'centimeters';
             fig.Position = self.config.figure.get('position', [1,1,9.3,9.3]);
-            % fig.Position = self.config.figure.get('position', [1,1,15.3,9.3]);
 
             % Plot figures
             try
@@ -133,9 +95,8 @@ classdef IdentModelComparer < ModelComparer
                 self.log(sprintf('An error occurred: %s\n', ME.message));
                 return
             end
-            colors = self.config.get('colors', {'r', 'g', 'b', 'k', 'y'});
-            % markers = self.config.get('markers', {'o', '+', '*', '.', 'x', 's', 'd', '^', 'v', '>', '<', 'p', 'h'});
-            markers = self.config.get('markers', {'o', '+', '*', '.', '.', '.', '.', '.', 'v', '>', '<', 'p', 'h'});
+            colors = self.config.get('colors', {'red', '#0072BD', '#7E2F8E', '#A48BB3', 'y'});
+            markers = self.config.get('markers', {'o', '+', '*', '.', 'x', 's', 'd', '^', 'v', '>', '<', 'p', 'h'});
             plotHandlers = {};
             for i=1:numel(ret.x)
                 x = ret.x{i};
@@ -177,10 +138,9 @@ classdef IdentModelComparer < ModelComparer
                 mkdir(dirName);
             end
             figName = self.config.comparer.get('figName', statsName);
-            % saveas(fig, fullfile(dirName, sprintf('%s.pdf', figName)), 'pdf');
-            saveas(fig, fullfile(dirName, sprintf('%s.png', figName)), 'png');
-            saveas(fig, fullfile(dirName, sprintf('%s.epsc', figName)), 'epsc');
-            saveas(fig, fullfile(dirName, sprintf('%s.fig', figName)), 'fig');
+            % saveas(fig, fullfile(dirName, sprintf('%s.png', figName)), 'png');
+            % saveas(fig, fullfile(dirName, sprintf('%s.epsc', figName)), 'epsc');
+            % saveas(fig, fullfile(dirName, sprintf('%s.fig', figName)), 'fig');
             exportgraphics(fig, fullfile(dirName, sprintf('%s.pdf', figName)),'BackgroundColor','none');
             close(fig);
 

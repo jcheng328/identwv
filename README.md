@@ -65,3 +65,7 @@ If Ident-WV proves valuable in your research, please consider citing our [paper]
 
 - For technical questions and feature requests, please use GitHub [Issues](https://github.com/jcheng328/identwv/issues) or [Discussions](https://github.com/jcheng328/identwv/discussions)
 - For collaborations and partnerships, please contact us at [jcheng49f@gmail.com](mailto:jcheng49f@gmail.com)
+
+## Acknowledgements
+
+This project utilizes code from the [WeakIdent Repository](https://github.com/sunghakang/WeakIdent) by [Mengyi Tang/Georgia Tech et al.]. We are grateful for their valuable work.

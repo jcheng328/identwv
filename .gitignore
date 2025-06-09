@@ -1,4 +1,5 @@
 *.mat
+/Data
 .DS_Store
 /Results
 *.asv

@@ -6,7 +6,7 @@ models = {'identwv'};
 acronym = {'Ident-WV'};
 
 % Initialize the service and visualize results, check the log @
-% .\Results\ModelHandler\identwv\{your_dataset_name}\Output_identwv_{your_dataset_name}.txt
+% .\Results\ModelComparer\{your_dataset_name}\Output_ModelComparer.txt
 serviceConfig = "./Service/Compare_Service_TPR.yaml";
 config = OmegaConf.load(serviceConfig);
 handler = createObject(config);

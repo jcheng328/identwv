@@ -7,7 +7,7 @@ WeakIdent with Voting
 </h3>
 
 <p align="center">
-| <a href=""><b>Documentation</b></a> | <a href=""><b>Paper</b></a> | <a href=""><b>Developer Group</b></a> |
+| <a href="https://github.com/jcheng328/identwv/tree/main?tab=readme-ov-file"><b>Documentation</b></a> | <a href=""><b>Paper</b></a> | <a href=""><b>Developer Group</b></a> |
 </p>
 
 ---
